@@ -9,7 +9,7 @@
       "source_file": "app.py",
       "source_location": "L1",
       "id": "app_py",
-      "community": 0,
+      "community": 1,
       "norm_label": "app.py"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "app.py",
       "source_location": "L26",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_app_get_model",
-      "community": 0,
+      "community": 1,
       "norm_label": "get_model()"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "app.py",
       "source_location": "L35",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_app_model_labels",
-      "community": 0,
+      "community": 1,
       "norm_label": "model_labels()"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "app.py",
       "source_location": "L42",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_app_infer_jpeg",
-      "community": 0,
+      "community": 1,
       "norm_label": "infer_jpeg()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "app.py",
       "source_location": "L90",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_app_home",
-      "community": 0,
+      "community": 1,
       "norm_label": "home()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "app.py",
       "source_location": "L95",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_app_health",
-      "community": 0,
+      "community": 1,
       "norm_label": "health()"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "app.py",
       "source_location": "L106",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_app_infer_socket",
-      "community": 0,
+      "community": 1,
       "norm_label": "infer_socket()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "README.md",
       "source_location": "L1",
       "id": "readme_md",
-      "community": 2,
+      "community": 0,
       "norm_label": "readme.md"
     },
     {
@@ -81,23 +81,32 @@
       "source_file": "README.md",
       "source_location": "L1",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "community": 2,
+      "community": 0,
       "norm_label": "aerosight"
     },
     {
-      "label": "Features",
+      "label": "What you can do",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L5",
-      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_features",
-      "community": 2,
-      "norm_label": "features"
+      "source_location": "L9",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_what_you_can_do",
+      "community": 0,
+      "norm_label": "what you can do"
+    },
+    {
+      "label": "How it works",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_how_it_works",
+      "community": 0,
+      "norm_label": "how it works"
     },
     {
       "label": "Run locally",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L13",
+      "source_location": "L21",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_run_locally",
       "community": 3,
       "norm_label": "run locally"
@@ -106,7 +115,7 @@
       "label": "code:powershell (python -m pip install -r requirements.txt)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L17",
+      "source_location": "L25",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_1",
       "community": 3,
       "norm_label": "code:powershell (python -m pip install -r requirements.txt)"
@@ -115,35 +124,80 @@
       "label": "code:powershell ($env:YOLO_MODEL = 'C:\\path\\to\\best.pt')",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L26",
+      "source_location": "L32",
       "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_2",
       "community": 3,
       "norm_label": "code:powershell ($env:yolo_model = 'c:\\path\\to\\best.pt')"
+    },
+    {
+      "label": "Try a video",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_try_a_video",
+      "community": 0,
+      "norm_label": "try a video"
+    },
+    {
+      "label": "Project structure",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L47",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure",
+      "community": 4,
+      "norm_label": "project structure"
+    },
+    {
+      "label": "code:text (app.py                         FastAPI server, WebSocket, an)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_3",
+      "community": 4,
+      "norm_label": "code:text (app.py                         fastapi server, websocket, an)"
+    },
+    {
+      "label": "Licensing",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L55",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_licensing",
+      "community": 0,
+      "norm_label": "licensing"
+    },
+    {
+      "label": "Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "features",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_features"
     },
     {
       "label": "Test a video",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L33",
-      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_test_a_video",
-      "community": 2,
-      "norm_label": "test a video"
+      "community": 0,
+      "norm_label": "test a video",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_test_a_video"
     },
     {
       "label": "Model and application licensing",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L37",
-      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_model_and_application_licensing",
-      "community": 2,
-      "norm_label": "model and application licensing"
+      "community": 0,
+      "norm_label": "model and application licensing",
+      "id": "roboflow_plugin_roboflow_computer_vision_openai_readme_model_and_application_licensing"
     },
     {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "work/graphify-runtime/tree_sitter/__init__.py",
       "source_location": "L1",
-      "community": 1,
+      "community": 2,
       "norm_label": "__init__.py",
       "id": "work_graphify_runtime_tree_sitter_init_py"
     },
@@ -152,7 +206,7 @@
       "file_type": "code",
       "source_file": "work/graphify-runtime/tree_sitter/__init__.py",
       "source_location": "L26",
-      "community": 1,
+      "community": 2,
       "norm_label": "querypredicate",
       "id": "tree_sitter_init_querypredicate"
     },
@@ -161,7 +215,7 @@
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "community": 1,
+      "community": 2,
       "norm_label": "_protocol",
       "id": "protocol"
     },
@@ -170,7 +224,7 @@
       "file_type": "code",
       "source_file": "work/graphify-runtime/tree_sitter/__init__.py",
       "source_location": "L28",
-      "community": 1,
+      "community": 2,
       "norm_label": ".__call__()",
       "id": "tree_sitter_init_querypredicate_call"
     },
@@ -179,7 +233,7 @@
       "file_type": "rationale",
       "source_file": "work/graphify-runtime/tree_sitter/__init__.py",
       "source_location": "L1",
-      "community": 1,
+      "community": 2,
       "norm_label": "python bindings to the tree-sitter parsing library.",
       "id": "tree_sitter_init_rationale_1"
     },
@@ -188,7 +242,7 @@
       "file_type": "rationale",
       "source_file": "work/graphify-runtime/tree_sitter/__init__.py",
       "source_location": "L27",
-      "community": 1,
+      "community": 2,
       "norm_label": "a custom query predicate that runs on a pattern.",
       "id": "tree_sitter_init_rationale_27"
     },
@@ -197,7 +251,7 @@
       "file_type": "rationale",
       "source_file": "work/graphify-runtime/tree_sitter/__init__.py",
       "source_location": "L29",
-      "community": 1,
+      "community": 2,
       "norm_label": "parameters         ----------          predicate : str             the name",
       "id": "tree_sitter_init_rationale_29"
     }
@@ -310,11 +364,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L5",
+      "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_features"
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_what_you_can_do",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_how_it_works",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -325,6 +389,46 @@
       "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
       "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_run_locally"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_try_a_video",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_licensing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_features"
     },
     {
       "relation": "contains",
@@ -365,6 +469,16 @@
       "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_run_locally",
       "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_2"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure",
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_3",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -427,5 +541,6 @@
       "target": "tree_sitter_init_querypredicate_call"
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "43b0dc531b5120d30df00e3f2598bf96fe16df9d"
 }
