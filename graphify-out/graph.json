@@ -384,9 +384,9 @@
       "source_file": "README.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_model_provenance",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_model_provenance"
     },
     {
       "relation": "contains",
@@ -484,9 +484,9 @@
       "source_file": "README.md",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_model_provenance",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_1",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_1"
     },
     {
       "relation": "contains",
@@ -514,9 +514,9 @@
       "source_file": "README.md",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_run_locally",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_3",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_3"
     },
     {
       "relation": "contains",
@@ -534,9 +534,9 @@
       "source_file": "README.md",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_4",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_4"
     },
     {
       "relation": "contains",
@@ -600,5 +600,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9671b6f97244293ab1021d930935e0e9baf33d54"
+  "built_at_commit": "541cf3660fb3c94a7f3d352d50a91756ee426ee2"
 }
