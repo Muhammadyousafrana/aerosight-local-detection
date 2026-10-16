@@ -16,7 +16,9 @@ from ultralytics import YOLO
 
 ROOT = Path(__file__).resolve().parent
 WEB_APP = ROOT / "static" / "index.html"
-MODEL_SPEC = os.getenv("YOLO_MODEL", "yolo26n.pt")
+PROJECT_MODEL_ID = "alis-workspace-zktpw/uav-persons-detection-3-yolo11n-t1"
+DEFAULT_MODEL_PATH = "models/uav-persons-detection-3-yolo11n-t1/weights.pt"
+MODEL_SPEC = os.getenv("YOLO_MODEL", DEFAULT_MODEL_PATH)
 MODEL: YOLO | None = None
 MODEL_LOCK = threading.Lock()
 
@@ -28,7 +30,17 @@ def get_model() -> YOLO:
     if MODEL is None:
         with MODEL_LOCK:
             if MODEL is None:
-                MODEL = YOLO(MODEL_SPEC)
+                model_path = Path(MODEL_SPEC).expanduser()
+                if not model_path.is_absolute():
+                    model_path = ROOT / model_path
+                if not model_path.is_file():
+                    raise FileNotFoundError(
+                        f"Local model weights not found at {model_path}. "
+                        "Download the trained UAV-Persons-Detection version 3 "
+                        "YOLOv11n weights and place weights.pt at "
+                        f"{ROOT / DEFAULT_MODEL_PATH}, or set YOLO_MODEL to a local checkpoint."
+                    )
+                MODEL = YOLO(str(model_path))
     return MODEL
 
 
@@ -93,11 +105,16 @@ def home() -> FileResponse:
 
 @app.get("/api/health")
 def health() -> dict[str, object]:
+    model_path = Path(MODEL_SPEC).expanduser()
+    if not model_path.is_absolute():
+        model_path = ROOT / model_path
     return {
         "status": "ok",
         "app": "AeroSight",
         "model": MODEL_SPEC,
+        "project_model_id": PROJECT_MODEL_ID,
         "model_loaded": MODEL is not None,
+        "model_available": model_path.is_file(),
         "roboflow_required": False,
     }
 

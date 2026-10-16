@@ -21,7 +21,7 @@
     </header>
     <section class="intro">
       <div><div class="eyebrow">Computer vision workbench</div><h2>See people from above.</h2><p>Run person detection on a local video or webcam. Frames stay on this machine; no Roboflow account or cloud inference is used.</p></div>
-      <div class="model-chip"><span>◈</span><span id="modelName">YOLO26n · COCO</span></div>
+      <div class="model-chip"><span>◈</span><span id="modelName">UAV project v3 · YOLOv11n</span></div>
     </section>
     <section class="grid">
       <div class="main-card">
@@ -47,10 +47,10 @@
         <div class="setting"><div class="setting-head"><label for="confidence">Confidence threshold</label><output id="confidenceOut">35%</output></div><input class="range" id="confidence" type="range" min="10" max="90" value="35"></div>
         <div class="setting"><div class="setting-head"><label for="rate">Inference frame rate</label><output id="rateOut">5 FPS</output></div><input class="range" id="rate" type="range" min="1" max="10" value="5"></div>
         <div class="metrics"><div class="metric"><span>People in frame</span><strong id="count">—</strong></div><div class="metric"><span>Inference</span><strong><span id="latency">—</span><small> ms</small></strong></div></div>
-        <div class="note">The model loads on first use. A local model file can be selected with <code>YOLO_MODEL</code>; the default is a small COCO person detector.</div>
+        <div class="note">AeroSight requires the trained UAV-Persons-Detection v3 checkpoint at <code>models/uav-persons-detection-3-yolo11n-t1/weights.pt</code>. It will not silently replace it with a generic model.</div>
       </aside>
     </section>
-    <footer class="footer"><span>AeroSight runs at <code>127.0.0.1</code> and processes video frames locally.</span><span>For aerial footage, load your own fine-tuned YOLO weights with <code>YOLO_MODEL</code>.</span></footer>
+    <footer class="footer"><span>AeroSight runs at <code>127.0.0.1</code> and processes video frames locally.</span><span>The Roboflow key is not used at runtime; inference uses the local v3 checkpoint.</span></footer>
   </main>
   <canvas id="capture" hidden></canvas>
   <script>
@@ -122,7 +122,7 @@
     };
     $('rate').oninput = () => $('rateOut').textContent = `${$('rate').value} FPS`;
     video.onloadedmetadata = () => { canvas.width = video.videoWidth || 1; canvas.height = video.videoHeight || 1; };
-    fetch('/api/health').then(r => r.json()).then(info => { $('serverStatus').textContent = 'LOCAL ENGINE READY'; $('serverDot').classList.add('online'); $('modelName').textContent = info.model.includes('yolo26n.pt') ? 'YOLO26n · COCO' : info.model; }).catch(() => { $('serverStatus').textContent = 'LOCAL ENGINE OFFLINE'; message('Start the local server with python app.py to begin.'); });
+    fetch('/api/health').then(r => r.json()).then(info => { $('modelName').textContent = 'UAV project v3 · YOLOv11n'; if (info.model_available) { $('serverStatus').textContent = 'LOCAL MODEL READY'; $('serverDot').classList.add('online'); } else { $('serverStatus').textContent = 'MODEL CHECKPOINT MISSING'; message('Download the trained UAV-Persons-Detection v3 weights; AeroSight does not fall back to a generic model.'); } }).catch(() => { $('serverStatus').textContent = 'LOCAL ENGINE OFFLINE'; message('Start the local server with python app.py to begin.'); });
     window.addEventListener('beforeunload', () => { stop(); if (stream) stream.getTracks().forEach(t => t.stop()); if (objectUrl) URL.revokeObjectURL(objectUrl); });
   </script>
 </body>

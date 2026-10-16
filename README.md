@@ -2,56 +2,62 @@
 
 ![AeroSight local vision pipeline](assets/aerosight-architecture.svg)
 
-**A local video and webcam workbench for person detection.** AeroSight keeps your footage and inference on your computer, with a browser UI backed by a local Python service. Roboflow is not part of the runtime.
+**Local video and webcam inference using the trained UAV-Persons-Detection model.** AeroSight loads the project’s YOLOv11n version 3 checkpoint into Ultralytics and processes frames on your computer. The running app does not call Roboflow or upload frames.
 
-> **Model status:** the included default is Ultralytics YOLO26n trained on COCO. It can detect people in general scenes, but it is not the fine-tuned UAV-Persons-Detection model from the original Roboflow project. Add compatible weights you own to run that model locally.
+## Model provenance
 
-## What you can do
+- Roboflow project: `alis-workspace-zktpw/uav-persons-detection`
+- Trained model: `uav-persons-detection-3-yolo11n-t1`
+- Dataset version: `3`
+- Training: YOLOv11n, finished
+
+The checkpoint is not included in Git. Roboflow makes trained-weight downloads available through the model page or Python SDK on eligible plans. Download the version 3 YOLOv11n weights from the [project’s version 3 page](https://app.roboflow.com/alis-workspace-zktpw/uav-persons-detection/3), then place `weights.pt` here:
+
+```text
+models/uav-persons-detection-3-yolo11n-t1/weights.pt
+```
+
+Roboflow is needed only to obtain the checkpoint. The app has no Roboflow runtime dependency and will report a missing-checkpoint error rather than substitute a generic pretrained model.
+
+## Features
 
 - Detect people in local MP4, MOV, and WebM videos.
-- Run live inference from a connected webcam.
-- Adjust the detection confidence and inference frame rate in the UI.
-- Load a compatible local Ultralytics model file.
-- Keep video frames, inference, and results on the same computer.
-
-## How it works
-
-The browser reads a selected video or webcam stream and sends frames over a WebSocket to the local FastAPI app. OpenCV decodes each frame, Ultralytics runs the model locally, and detections return to the UI for display. No account, API key, hosted inference service, or Roboflow connection is used.
+- Run live detection from a connected webcam.
+- Adjust confidence and inference frame rate in the browser UI.
+- Use the project’s trained YOLOv11n version 3 weights by default.
+- Keep video frames and inference on the local computer.
 
 ## Run locally
 
-Requires Python 3.10 or newer.
+Requires Python 3.10 or newer, the local checkpoint above, and the packages in `requirements.txt`.
 
 ```powershell
 python -m pip install -r requirements.txt
 python app.py
 ```
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000). On first launch, Ultralytics downloads the small YOLO26n COCO weights if they are not already cached. You can also download compatible weights separately and point AeroSight to the file:
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000). If you have another compatible local checkpoint, select it with `YOLO_MODEL`:
 
 ```powershell
-$env:YOLO_MODEL = 'C:\path\to\best.pt'
+$env:YOLO_MODEL = 'C:\path\to\weights.pt'
 python app.py
 ```
 
-The model file stays local. For the aerial model from the original Roboflow project, export or obtain its weights and set `YOLO_MODEL` to that file; AeroSight does not fetch weights from Roboflow.
+The app accepts only an existing local weight file; Ultralytics will not fetch a default model from the internet.
 
-## Try a video
+## Test a video
 
-1. Start the app and open it in your browser.
-2. Choose a local video or allow webcam access.
-3. Set the confidence and frame rate, then select **Start detection**.
-
-Video files are read by the browser and are not copied into the repository. The test clip used during development is from [Intel's sample videos](https://github.com/intel-iot-devkit/sample-videos); it is a test asset and is not included in this repository.
+Choose a local video or allow webcam access, adjust confidence and frame rate, then select **Start detection**. The video is processed locally and is not copied into the repository. The development test clip came from [Intel's sample videos](https://github.com/intel-iot-devkit/sample-videos); it is not included here.
 
 ## Project structure
 
 ```text
-app.py                         FastAPI server, WebSocket, and local inference
-static/index.html              Browser interface for video and webcam
-assets/aerosight-architecture.svg  README architecture illustration
+app.py                              FastAPI server, WebSocket, and local inference
+static/index.html                   Browser interface for video and webcam
+assets/aerosight-architecture.svg   Local-only architecture illustration
+models/.../weights.pt               Locally downloaded project checkpoint (ignored by Git)
 ```
 
 ## Licensing
 
-The AeroSight application source is MIT licensed. The Ultralytics package is distributed under AGPL-3.0, and model weights have separate license terms. Review those terms before redistributing or using the software in a commercial product. Fine-tuned weights may also carry terms set by their owner or source.
+The AeroSight application source is MIT licensed. Ultralytics is distributed under AGPL-3.0. The trained weights are governed by the Roboflow plan and license terms; confirm that you can use and redistribute them for your intended purpose. The checkpoint is excluded from this repository.
