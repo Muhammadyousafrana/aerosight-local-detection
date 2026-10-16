@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+work/
+.env
+models/*.pt
+*.pt
+*.mp4
+*.mov
+*.webm
+results/
+Ultralytics/
+.ultralytics/
+graphify-out/.graphify_root
+graphify-out/cache/
