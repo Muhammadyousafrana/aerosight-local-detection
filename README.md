@@ -1,39 +1,57 @@
 # AeroSight
 
-Local aerial person detection for video files and live cameras. AeroSight does not call Roboflow or upload video frames: the browser sends frames to a server running on `127.0.0.1`, where a local YOLO model processes them.
+![AeroSight local vision pipeline](assets/aerosight-architecture.svg)
 
-## Features
+**A local video and webcam workbench for person detection.** AeroSight keeps your footage and inference on your computer, with a browser UI backed by a local Python service. Roboflow is not part of the runtime.
 
-- Process a local MP4, MOV, or WebM file in the browser.
-- Run live detection from a connected webcam.
-- Adjust confidence and inference frame rate.
-- Use a local fine-tuned model by setting `YOLO_MODEL`.
-- Keep inference and source video on the local computer.
+> **Model status:** the included default is Ultralytics YOLO26n trained on COCO. It can detect people in general scenes, but it is not the fine-tuned UAV-Persons-Detection model from the original Roboflow project. Add compatible weights you own to run that model locally.
+
+## What you can do
+
+- Detect people in local MP4, MOV, and WebM videos.
+- Run live inference from a connected webcam.
+- Adjust the detection confidence and inference frame rate in the UI.
+- Load a compatible local Ultralytics model file.
+- Keep video frames, inference, and results on the same computer.
+
+## How it works
+
+The browser reads a selected video or webcam stream and sends frames over a WebSocket to the local FastAPI app. OpenCV decodes each frame, Ultralytics runs the model locally, and detections return to the UI for display. No account, API key, hosted inference service, or Roboflow connection is used.
 
 ## Run locally
 
-Use Python 3.10 or newer. Install the packages and start the app:
+Requires Python 3.10 or newer.
 
 ```powershell
 python -m pip install -r requirements.txt
 python app.py
 ```
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000). The first run downloads the small Ultralytics YOLO26n COCO model if it is not cached. After that, the downloaded model runs locally. An internet connection is needed for this initial setup unless you provide the weights ahead of time.
-
-For a fine-tuned aerial detector, point the app to a compatible local weights file:
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000). On first launch, Ultralytics downloads the small YOLO26n COCO weights if they are not already cached. You can also download compatible weights separately and point AeroSight to the file:
 
 ```powershell
 $env:YOLO_MODEL = 'C:\path\to\best.pt'
 python app.py
 ```
 
-The current default model is a general COCO detector, not the model trained for the Roboflow UAV-Persons-Detection project. Exported fine-tuned weights can be loaded without adding a Roboflow runtime dependency.
+The model file stays local. For the aerial model from the original Roboflow project, export or obtain its weights and set `YOLO_MODEL` to that file; AeroSight does not fetch weights from Roboflow.
 
-## Test a video
+## Try a video
 
-Start AeroSight, choose a local video in the interface, and select **Start detection**. Frames are processed locally; the video file is not uploaded or copied into the repository.
+1. Start the app and open it in your browser.
+2. Choose a local video or allow webcam access.
+3. Set the confidence and frame rate, then select **Start detection**.
 
-## Model and application licensing
+Video files are read by the browser and are not copied into the repository. The test clip used during development is from [Intel's sample videos](https://github.com/intel-iot-devkit/sample-videos); it is a test asset and is not included in this repository.
 
-The AeroSight application source is MIT licensed. Ultralytics is distributed under AGPL-3.0, and its model weights are separately licensed. Review those terms before redistributing or using the model in a commercial product. Fine-tuned weights may have additional terms from their owner or training platform.
+## Project structure
+
+```text
+app.py                         FastAPI server, WebSocket, and local inference
+static/index.html              Browser interface for video and webcam
+assets/aerosight-architecture.svg  README architecture illustration
+```
+
+## Licensing
+
+The AeroSight application source is MIT licensed. The Ultralytics package is distributed under AGPL-3.0, and model weights have separate license terms. Review those terms before redistributing or using the software in a commercial product. Fine-tuned weights may also carry terms set by their owner or source.
