@@ -366,9 +366,9 @@
       "source_file": "README.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_what_you_can_do",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_what_you_can_do"
     },
     {
       "relation": "contains",
@@ -376,9 +376,9 @@
       "source_file": "README.md",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_how_it_works",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_how_it_works"
     },
     {
       "relation": "contains",
@@ -396,9 +396,9 @@
       "source_file": "README.md",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_try_a_video",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_try_a_video"
     },
     {
       "relation": "contains",
@@ -406,9 +406,9 @@
       "source_file": "README.md",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure"
     },
     {
       "relation": "contains",
@@ -416,9 +416,9 @@
       "source_file": "README.md",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_aerosight",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_licensing",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_licensing"
     },
     {
       "relation": "contains",
@@ -476,9 +476,9 @@
       "source_file": "README.md",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "roboflow_plugin_roboflow_computer_vision_openai_readme_project_structure",
-      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_3",
-      "confidence_score": 1.0
+      "target": "roboflow_plugin_roboflow_computer_vision_openai_readme_codeblock_3"
     },
     {
       "relation": "contains",
@@ -542,5 +542,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "43b0dc531b5120d30df00e3f2598bf96fe16df9d"
+  "built_at_commit": "7d8257fc0b4fb3320e7fc37f4398a0602ac7e6cc"
 }
